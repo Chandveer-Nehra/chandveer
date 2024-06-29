@@ -1,0 +1,511 @@
+import java.util.*;
+import java.text.*;
+class Account
+{
+	
+	private String name;
+	private String aadharnumber;
+	private int accountnumber;
+	private String phonenumber;
+	private double accountbalance;
+	public void setName(String name)
+	{
+		this.name=name;
+	}
+	public void setAadharnumber(String aadharnumber)
+	{
+		this.aadharnumber=aadharnumber;
+	}
+	public void setAccountnumber(int accountnumber)
+	{
+		this.accountnumber=accountnumber;
+	}		
+	public void setPhonenumber(String phonenumber)
+	{
+		this.phonenumber=phonenumber;
+	}
+	public void setAccountbalance(double accountbalance)
+	{
+		this.accountbalance=accountbalance;
+	}
+	public String getName()
+	{
+		return this.name;
+	}
+	public String getAadharnumber()
+	{
+		return this.aadharnumber;
+	}
+	public int getAccountnumber()
+	{
+		return this.accountnumber;
+	}
+	public String getPhonenumber()
+	{
+		return this.phonenumber;
+	}
+	public double getAccountbalance()
+	{
+		return this.accountbalance;
+	}
+}
+class Bank
+{
+	//random
+	public static String generateOTP(int otpLength)
+	{
+		Random random = new Random();
+		StringBuilder sb = new StringBuilder();
+		for(int i=0;i<otpLength;i++)
+		{
+			sb.append(random.nextInt(10));
+		}
+		String otp = sb.toString();
+		return otp;
+	}
+	public static void cls()
+{
+	try
+	{	
+		new ProcessBuilder("cmd","/c","cls").inheritIO().start().waitFor();
+	}catch(Exception E)
+		{
+			System.out.println(E);
+		}
+}
+   public static void ddd()
+   {
+      Date dNow = new Date( );
+      SimpleDateFormat ft = 
+      new SimpleDateFormat ("E yyyy.MM.dd 'at' hh:mm:ss a zzz");
+
+      System.out.println("Current Date: " + ft.format(dNow));
+   }
+
+	
+	
+	public static void main(String[]args)  throws Exception
+	{
+		int securitypin=786;
+		int baseAccount=10000;
+		Scanner sc=new Scanner(System.in);
+		ArrayList <Account>allData=new ArrayList<>();
+		
+	
+		
+while(true)
+{
+	ddd();
+
+	System.out.println("\n\n\n\t\t\t WELCOME TO NEHRA BANK\t\t\t\n\n\n");
+	System.out.println(":::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::");
+System.out.println("press 1:: To create a new Account");
+System.out.println("press 2:: check detail from Account number");
+System.out.println("press 3:: Deposit the Amount");
+System.out.println("press 4:: Show the detail of Customer");
+System.out.println("press 5:: Withdrawal the cash from the Account");
+System.out.println("press 6:: To see all the Account in Bank");
+    System.out.println(":::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::");
+    System.out.println("\n\n\t\t\t ENTER THE CHOICE\t\t\t\n\n");
+int choice=sc.nextInt();
+{
+	  
+   
+
+if(choice==1)
+{
+	Account a=new Account();
+	System.out.println("Enter the name");
+	String name=sc.next();
+	Thread.sleep(2000);
+	cls();
+	Thread.sleep(2000);
+	String aadharnumber="";
+	while(true)
+	{
+	System.out.println("Enter the Aadhar number");
+	 aadharnumber=sc.next();
+	 Thread.sleep(1000);
+	 System.out.println(" \n\t Please Wait.... \n\t");
+	 Thread.sleep(2000);
+	if(aadharnumber.length()==12)
+	{
+		System.out.println("\n\n\t\t   Verified \n\n\t\t");
+		Thread.sleep(2000);
+		cls();
+		System.out.println("\n\n\t\t Aadhar number is verified \n\n\t\t");
+		Thread.sleep(2000);
+		cls();
+	break;
+	}
+	else
+	{
+		cls();
+		Thread.sleep(2000);
+	System.out.println("\n\t Invalid Aadharnumber \n\t");
+	Thread.sleep(2000);
+	cls();
+	}
+	}	
+	
+	String phonenumber = "";
+	while(true){
+	System.out.println("ENter the Phonenumber");
+	 phonenumber=sc.next();
+	 Thread.sleep(0);
+	
+	if(phonenumber.length() == 10){
+		Thread.sleep(2000);
+		System.out.println(" \n\t PLEASE WAIT \n\t");
+		Thread.sleep(2000);
+		cls();
+		System.out.println(" \n\n\n Phone number is Verified..... \n\n\n");
+		Thread.sleep(2000);
+		cls();
+		break;
+	}
+	else{
+		Thread.sleep(2000);
+		cls();
+		System.out.println(" \n\n\n Invalid Phonenumber \n\n\n");
+		Thread.sleep(2000);
+		cls();
+		System.out.println("\n\t Phone Number can not Be Smaller Thaan 10 Digit \n\t");
+		Thread.sleep(2000);
+		cls();
+	}
+	
+	
+	}
+	
+	a.setName(name);
+	a.setAadharnumber(aadharnumber);
+	//send.otp pasty
+	String otp = generateOTP(4);
+	SendOTP.sendOTP(otp,phonenumber,"ZftvSEsm7qLe0pcrZ1q2Dx8y0vRrudmnzb7scbdyCQjqG4lJrTzBxyOFRmpZ");
+	while(true)
+	{
+	
+	System.out.println(" \n\n\t\tENter the OTP \n\n\t\t");
+	String p=sc.next();
+	Thread.sleep(2000);
+	System.out.println(" \n\n PLEASE WAIT... \n\n");
+	Thread.sleep(2000);
+	cls();
+	if(p.equals(otp))
+	{
+		System.out.println("\n\t OTp is verified \n\t");
+		break;
+	}
+	else
+	{
+		System.out.println("\n\t OTP is not verified \n\t");
+	}
+	
+	
+	}
+	a.setPhonenumber(phonenumber);
+	a.setAccountnumber(baseAccount);
+	a.setAccountbalance(0);
+	allData.add(a);
+	System.out.println(" \n\n\n\t\tPlease wait ... \n\n\n\t\t");
+	Thread.sleep(2000);
+	cls();
+	System.out.println("\n\n\n\n\t Account create Successfully \n\n\n\n\t\t");
+	Thread.sleep(2000);
+	cls();
+	
+	System.out.println("\n\n\t\t Your Account number is \n\n\t\t"+baseAccount);
+	Thread.sleep(2000);
+	cls();
+	baseAccount++;
+	Thread.sleep(1000);
+}
+	
+
+	else if(choice==2)
+	{
+		
+
+		System.out.println("Enter the account number");
+	int accountnu=sc.nextInt();
+	boolean invalid=false;
+	Thread.sleep(2000);
+	System.out.println("\n\n\t\t PLEASE WAIT ACCOUNT NUMBER IS VERIFIED \n\n\t\t");
+	Thread.sleep(2000);
+	cls();
+		for(int i=0;i<allData.size();i++)
+	{
+		if(allData.get(i).getAccountnumber()==accountnu)
+		{
+			Thread.sleep(2000);
+			System.out.println(" \n\n\n\t Account is Found \n\n\n\t ");
+			Thread.sleep(2000);
+			cls();
+			System.out.println(allData.get(i).getName());
+			System.out.println("aadhar number"+allData.get(i).getAadharnumber());
+			System.out.println("Accountbalance"+allData.get(i).getAccountbalance());
+			System.out.println("Link Phone number"+allData.get(i).getPhonenumber());
+			SendOTP.sendOTP("Your Balance is \n\t"+String.valueOf(allData.get(i).getAccountbalance()+"\n\t please check"),allData.get(i).getPhonenumber(),"ZftvSEsm7qLe0pcrZ1q2Dx8y0vRrudmnzb7scbdyCQjqG4lJrTzBxyOFRmpZ");
+			invalid=true;
+			Thread.sleep(3000);
+			cls();
+			break;
+		}
+	
+	
+	
+	
+			if(!invalid)
+			{
+	Thread.sleep(1000);
+	System.out.println(" \n\n\t\t Invlaid account \n\n\t\t ");
+	Thread.sleep(2000);
+	invalid=true;
+	cls();
+}
+
+
+}
+
+	
+
+
+	}
+	
+	
+else if(choice==3)
+{	
+	boolean vt=false;
+	
+		 System.out.println("Enter the account number");
+	int account=sc.nextInt();
+	for(int i=0;i<allData.size();i++)
+	{
+			
+		if(allData.get(i).getAccountnumber()==account)
+		{
+			System.out.println("\n\n\t\t Processing \n\n\n\t\t");
+			Thread.sleep(2000);
+			System.out.println("Account  number is verified");
+			Thread.sleep(1000);
+			cls();
+			vt=true;
+			System.out.println("Enter the money to be deposit in your account");
+	double deposit=sc.nextDouble();
+	Thread.sleep(1000);
+	System.out.println(" \n\n\n Processing.... \n\n\n");
+	Thread.sleep(2000);
+	cls();
+	if(deposit>0)
+	{
+			double previousbalance=allData.get(i).getAccountbalance();
+			double newbalance=previousbalance+deposit;
+			allData.get(i).setAccountbalance(newbalance);
+			System.out.println("Currrent Balance is"+newbalance);
+			SendOTP.sendOTP("Your Balance is Successfully Credit \n\t"+String.valueOf(allData.get(i).getAccountbalance()+"\n\t please check"),allData.get(i).getPhonenumber(),"ZftvSEsm7qLe0pcrZ1q2Dx8y0vRrudmnzb7scbdyCQjqG4lJrTzBxyOFRmpZ");
+			Thread.sleep(3000);
+			cls();
+			break;
+	}	
+	else{
+	System.out.println("Enter The valid Amount");
+		}
+		}
+			
+
+if(!vt)
+{
+	Thread.sleep(1000);
+	System.out.println(" \n\n\t\t Account number is not verified \n\n\t\t");
+	Thread.sleep(2000);
+	cls();
+}
+}
+
+
+	}
+	
+
+
+
+else if(choice==4)
+{
+	Boolean hf=false;
+		System.out.println("Enter The Name of Customer");	
+	String customer=sc.next();
+	System.out.println("\n\n\t Please Wait \n\n\t");
+	Thread.sleep(2000);
+	cls();
+
+ for(int i=0;i<allData.size();i++)
+ {
+	
+		 
+	 	
+	 if(allData.get(i).getName().contains(customer))
+	 {
+		 Thread.sleep(2000);
+		 System.out.println("\n\n\t\t Account name is verified \n\n\t\t ");
+		 Thread.sleep(1000);
+		 cls();
+		 System.out.println("The Aadhar number is"+ allData.get(i).getAadharnumber());
+		 System.out.println("Total Amount in your account"+ allData.get(i).getAccountbalance());
+		 System.out.println("The Account number is "+ allData.get(i).getAccountnumber());
+		 hf=true;
+		 Thread.sleep(3000);
+		 cls();
+		 break;
+	 }
+	
+	
+if(!hf)
+	{
+		Thread.sleep(2000);
+		System.out.println("Customer Not Found");
+		Thread.sleep(2000);
+		cls();
+		System.out.println("\n\n\t\t Please Enter The Valid Customer name \n\n\t\t");
+		Thread.sleep(3000);
+		cls();
+}
+}
+
+ }
+
+
+else if(choice==5)
+{
+	
+System.out.println("Enter The Account Number");
+int account=sc.nextInt();
+boolean ht=false;
+Thread.sleep(2000);
+
+System.out.println(" \n\n\t\t PLEASE WAIT... \n\n\t\t");
+Thread.sleep(2000);
+cls();
+for(int i=0;i<allData.size();i++)
+{
+if(allData.get(i).getAccountnumber()==account)
+{
+	Thread.sleep(1000);
+	System.out.println("\n\n\t\t The Account Number is Verified \n\n\t\t ");
+	Thread.sleep(2000);
+	cls();
+	while(true)
+	{
+	System.out.println("Enter The Withdrwal Amount");
+	double withdrwal=sc.nextDouble();
+	Thread.sleep(2000);
+	
+	
+	System.out.println("\n\n\t PLEASE WAIT... \n\n\t");
+	Thread.sleep(2000);
+	cls();
+	{
+	if(withdrwal%100==0)
+	{
+		
+		
+	if (withdrwal>allData.get(i).getAccountbalance())
+	{
+		Thread.sleep(2000);
+		
+		cls();
+		System.out.println(" \n\n\t\t Your Account Balance Is Insufficent \n\n\t\t");
+		Thread.sleep(3000);
+		cls();
+		break;
+	}
+	else 
+	{Thread.sleep(1000);
+		System.out.println("\n\n\n\t\t\t Processing \n\n\n\t\t\t");
+		Thread.sleep(2000);
+		cls();
+	
+	double newbalance=allData.get(i).getAccountbalance();
+double withdraw=newbalance-withdrwal;
+allData.get(i).setAccountbalance(withdraw);
+System.out.println("This amount is succesfully debited from account"+withdrwal);
+System.out.println("Total balance in your account");
+System.out.println(allData.get(i).getAccountbalance());
+SendOTP.sendOTP("This Amount is debited from Account \n\t"+String.valueOf(withdrwal+"\n\t please check"),allData.get(i).getPhonenumber(),"ZftvSEsm7qLe0pcrZ1q2Dx8y0vRrudmnzb7scbdyCQjqG4lJrTzBxyOFRmpZ");
+SendOTP.sendOTP("Your Balance is \n\t"+String.valueOf(allData.get(i).getAccountbalance()+"\n\t please check"),allData.get(i).getPhonenumber(),"ZftvSEsm7qLe0pcrZ1q2Dx8y0vRrudmnzb7scbdyCQjqG4lJrTzBxyOFRmpZ");
+ht=true;
+Thread.sleep(3000);
+cls();
+break;
+	}
+	
+	}
+else
+{Thread.sleep(2000);
+	System.out.println("\n\n\t Enter The Correct Ammount \n\n\t");
+Thread.sleep(2000);
+cls();
+}
+}
+	}
+	ht=true;
+}
+	
+if(!ht)
+{
+	Thread.sleep(2000);
+	System.out.println(" \n\n\t\t THe account does not exit \n\n\t\t");
+	Thread.sleep(2000);
+	cls();
+	System.out.println("\n\n\t\t Please enter the valid Accountnumber \n\n\t\t");
+	Thread.sleep(2000);
+	cls();
+}
+
+	}
+}
+
+
+	if(choice==6)
+	{
+		System.out.println("Enter the password");
+		int password=sc.nextInt();
+		Thread.sleep(2000);
+		System.out.println(" \n\n\n PLEASE WAIT PASSWORD IS VERIFIED... \n\n\n");
+		Thread.sleep(1000);
+		cls();
+		Boolean hs=false;
+		 for(int i=0;i<allData.size();i++)
+			
+		{
+			if(password==securitypin)
+			
+			{
+				System.out.println(" The Account name is \n\t"+allData.get(i).getName());
+				System.out.println("  The Account Number is \n\t"+allData.get(i).getAccountnumber());
+				System.out.println("  The Account Balance is \n\t"+allData.get(i).getAccountbalance());
+				System.out.println("\n\n ---------------------------------------- \n\n");
+			hs=true;
+			Thread.sleep(2000);
+			}
+		}
+		
+		if(!hs)
+		{Thread.sleep(2000);
+			System.out.println("Invalid password");
+			Thread.sleep(2000);
+			cls();
+			System.out.println(" \n\n\t\t PLEASE Try Again.... \n\n\t\t");
+			Thread.sleep(2000);
+			cls();
+	}
+}
+	}	
+}
+
+
+
+
+
+
+	}
+	}
